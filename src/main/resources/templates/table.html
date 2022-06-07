@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register Form</title>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+
+</head>
+<body class="bg-light text-danger text-center">
+<div class="container">
+    <table class="table table-dark table-hover table-striped mt-5">
+        <thead>
+        <tr>
+            <th><a th:href="@{/register/list}"><i class="fa-solid fa-sort text-light"></i></a>
+                id
+                <a th:href="@{/register/sortById}"><i class="fa-solid fa-sort text-light"></i></a></th>
+            <th><a th:href="@{/register/sortByName}"><i class="fa-solid fa-sort text-light"></i></a>
+                name
+                <a th:href="@{/register/sortByName2}"><i class="fa-solid fa-sort text-light"></i></a></th>
+            <th><a th:href="@{/register/sortBySurname}"><i class="fa-solid fa-sort text-light"></i></a>
+                surname
+                <a th:href="@{/register/sortBySurname2}"><i class="fa-solid fa-sort text-light"></i></a></th>
+            <th>mail</th>
+            <th>password</th>
+            <th>information</th>
+            <th>delete</th>
+            <th>update</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="list:${list}">
+            <td th:text="${list.id}"></td>
+            <td th:text="${list.name}"></td>
+            <td th:text="${list.lastName}"></td>
+            <td th:text="${list.mail}"></td>
+            <td th:text="${list.password}"></td>
+            <td><a th:href="@{/register/find/{id}(id=${list.id})}"><i class="fa-solid fa-binoculars text-primary"></i></a></td>
+            <td><a th:href="@{/register/delete/{id}(id=${list.id})}"><i class="fa-regular fa-trash-can text-danger"></i></a></td>
+            <td><a th:href="@{/register/update/{id}(id=${list.id})}"><i class="fa-solid fa-wrench text-warning"></i></a></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+<!-- Bootstrap JavaScript Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
